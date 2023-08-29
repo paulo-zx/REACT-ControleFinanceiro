@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Resume from "./components/Resume";
 import Form from "./components/Form";
 import Footer from "./components/Footer";
+import Chart from "./components/Chart"; // Importe o componente Chart
 
 const App = () => {
   const data = localStorage.getItem("transactions");
@@ -23,14 +24,15 @@ const App = () => {
       .filter((item) => !item.expense)
       .map((transaction) => Number(transaction.amount));
 
-    const expense = amountExpense.reduce((acc, cur) => acc + cur, 0).toFixed(2);
-    const income = amountIncome.reduce((acc, cur) => acc + cur, 0).toFixed(2);
+    const totalExpense = amountExpense.reduce((acc, cur) => acc + cur, 0);
+    const totalIncome = amountIncome.reduce((acc, cur) => acc + cur, 0);
 
-    const total = Math.abs(income - expense).toFixed(2);
+    
+    const total = Number(totalIncome) - Number(totalExpense);
 
-    setIncome(`R$ ${income}`);
-    setExpense(`R$ ${expense}`);
-    setTotal(`${Number(income) < Number(expense) ? "-" : ""}R$ ${total}`);
+    setIncome(totalIncome);
+    setExpense(totalExpense);
+    setTotal(total);
   }, [transactionsList]);
 
   const handleAdd = (transaction) => {
@@ -50,6 +52,7 @@ const App = () => {
         transactionsList={transactionsList}
         setTransactionsList={setTransactionsList}
       />
+      <Chart income={income} expense={expense} total={total} /> {/* Renderize o componente Chart */}
       <GlobalStyle />
       <Footer />
     </>

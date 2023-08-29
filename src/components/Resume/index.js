@@ -9,7 +9,7 @@ import {
 
 const Resume = ({ income, expense, total }) => {
   return (
-    <C.Container>
+    <C.Container>   
       <ResumeItem
         title="Entradas"
         Icon={FaRegArrowAltCircleUp}

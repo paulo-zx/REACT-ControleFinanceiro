@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Grid from "../Grid";
+import Search from "../Search"; // Importe o componente Search
 import * as C from "./styles";
 
 const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
   const [desc, setDesc] = useState("");
   const [amount, setAmount] = useState("");
   const [isExpense, setExpense] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para a busca
 
   const generateID = () => Math.round(Math.random() * 1000);
 
@@ -67,7 +69,13 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
         </C.RadioGroup>
         <C.Button onClick={handleSave}>ADICIONAR</C.Button>
       </C.Container>
-      <Grid itens={transactionsList} setItens={setTransactionsList} />
+      <Search setSearchTerm={setSearchTerm} /> {/* Componente de busca */}
+      <Grid
+        itens={transactionsList.filter(item =>
+          item.desc.toLowerCase().includes(searchTerm.toLowerCase())
+        )}
+        setItens={setTransactionsList}
+      />
     </>
   );
 };
