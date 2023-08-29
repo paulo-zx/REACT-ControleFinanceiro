@@ -1,3 +1,17 @@
+Aplicação de finanças
+
+Podemos cadastrar as entradas e saidas fincanceiras salvos no localstorage
+
+link: https://paulo-finance-tech.netlify.app/
+
+Ele é responsivel para dispositivo moveis
+
+<img width="936" alt="ft1" src="https://github.com/paulo-zx/REACT-ControleFinanceiro/assets/17910800/dd327d9d-bc2e-4377-89d6-e7369f2eff79">
+
+<img width="940" alt="ft2" src="https://github.com/paulo-zx/REACT-ControleFinanceiro/assets/17910800/00ab53b4-7c8a-41c5-a063-94378c167ac0">
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
